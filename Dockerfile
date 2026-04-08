@@ -1,9 +1,10 @@
 FROM ghcr.io/sparfenyuk/mcp-proxy:latest
 
-# 从官方镜像复制 github-mcp-server 二进制
 COPY --from=ghcr.io/github/github-mcp-server:latest \
-     /usr/local/bin/github-mcp-server \
+     /server/github-mcp-server \
      /usr/local/bin/github-mcp-server
+
+RUN chmod +x /usr/local/bin/github-mcp-server
 
 EXPOSE 8080
 
